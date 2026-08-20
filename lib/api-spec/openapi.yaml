@@ -1,0 +1,467 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: market
+    description: Market data and analysis
+  - name: model
+    description: Model predictions, metadata, and explanations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /market-data:
+    get:
+      operationId: getMarketData
+      tags: [market]
+      summary: Get market candles
+      parameters:
+        - name: asset
+          in: query
+          required: false
+          schema:
+            type: string
+            default: XAUUSD
+        - name: timeframe
+          in: query
+          required: false
+          schema:
+            type: string
+            default: 1H
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: number
+            minimum: 10
+            maximum: 500
+            default: 72
+      responses:
+        "200":
+          description: OHLCV candle data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MarketCandle"
+  /indicators:
+    get:
+      operationId: getTechnicalIndicators
+      tags: [market]
+      summary: Get technical indicator series
+      parameters:
+        - name: asset
+          in: query
+          required: false
+          schema:
+            type: string
+            default: XAUUSD
+        - name: timeframe
+          in: query
+          required: false
+          schema:
+            type: string
+            default: 1H
+      responses:
+        "200":
+          description: Technical indicator values
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TechnicalIndicators"
+  /prediction:
+    get:
+      operationId: getPrediction
+      tags: [model]
+      summary: Get the latest model prediction
+      parameters:
+        - name: asset
+          in: query
+          required: false
+          schema:
+            type: string
+            default: XAUUSD
+      responses:
+        "200":
+          description: Latest directional prediction
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Prediction"
+  /chart-analysis:
+    post:
+      operationId: analyzeChart
+      tags: [model]
+      summary: Combine a screenshot read with the trained model baseline
+      description: Accepts measurements extracted from a TradingView screenshot in the browser. The image itself is not stored.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChartAnalysisRequest"
+      responses:
+        "200":
+          description: Screenshot and model analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChartAnalysisResponse"
+        "400":
+          description: Invalid analysis measurements
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /realtime-analysis:
+    get:
+      operationId: getRealtimeAnalysis
+      tags: [market, model]
+      summary: Get a live-candle model analysis
+      description: Fetches the latest provider candles when available and returns a recalculated price range, indicators, and weighted scenarios. Falls back to embedded sample candles with an explicit status when the provider is unavailable.
+      parameters:
+        - name: asset
+          in: query
+          required: false
+          schema:
+            type: string
+            default: BTCUSD
+        - name: timeframe
+          in: query
+          required: false
+          schema:
+            type: string
+            default: 1H
+            enum: [1m, 5m, 15m, 30m, 1H, 4H, 1D]
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 30
+            maximum: 200
+            default: 120
+      responses:
+        "200":
+          description: Live or fallback market analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RealtimeAnalysisResponse"
+        "400":
+          description: Invalid realtime analysis parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /model-info:
+    get:
+      operationId: getModelInfo
+      tags: [model]
+      summary: Get model loading and feature metadata
+      responses:
+        "200":
+          description: Model metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelInfo"
+  /feature-explanations:
+    get:
+      operationId: getFeatureExplanations
+      tags: [model]
+      summary: Get explainability factors for the latest prediction
+      responses:
+        "200":
+          description: Feature contribution values
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FeatureExplanation"
+  /performance:
+    get:
+      operationId: getModelPerformance
+      tags: [model]
+      summary: Get imported model performance metadata
+      responses:
+        "200":
+          description: Model performance metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelPerformance"
+  /analytics:
+    get:
+      operationId: getHistoricalAnalytics
+      tags: [model]
+      summary: Get historical prediction analytics
+      responses:
+        "200":
+          description: Historical prediction analytics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HistoricalAnalytics"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    MarketCandle:
+      type: object
+      required: [timestamp, open, high, low, close]
+      properties:
+        timestamp: { type: string, format: date-time }
+        open: { type: number }
+        high: { type: number }
+        low: { type: number }
+        close: { type: number }
+        volume: { type: ["number", "null"] }
+    TechnicalIndicators:
+      type: object
+      required: [ema9, ema21, sma50, rsi, macd, bollingerUpper, bollingerLower, atr]
+      properties:
+        ema9: { type: number }
+        ema21: { type: number }
+        sma50: { type: number }
+        rsi: { type: number }
+        macd: { type: number }
+        bollingerUpper: { type: number }
+        bollingerLower: { type: number }
+        atr: { type: number }
+    Prediction:
+      type: object
+      required: [asset, direction, probability, horizon, timestamp, modelStatus]
+      properties:
+        asset: { type: string }
+        direction: { type: string, enum: [BULLISH, BEARISH] }
+        probability: { type: number, minimum: 0, maximum: 1 }
+        horizon: { type: string }
+        timestamp: { type: string, format: date-time }
+        modelStatus: { type: string, enum: [sample, loaded, unavailable] }
+        disclaimer: { type: string }
+    ChartAnalysisRequest:
+      type: object
+      required: [asset, filename, imageWidth, imageHeight, bullishCandleRatio, bearishCandleRatio, trendScore, sampledColumns, visualConfidence, visualBias, visibleHighPosition, visibleLowPosition, lastPricePosition, priceRangeConfidence, signals]
+      properties:
+        asset: { type: string, default: XAUUSD }
+        filename: { type: string }
+        imageWidth: { type: number, minimum: 1, maximum: 10000 }
+        imageHeight: { type: number, minimum: 1, maximum: 10000 }
+        bullishCandleRatio: { type: number, minimum: 0, maximum: 1 }
+        bearishCandleRatio: { type: number, minimum: 0, maximum: 1 }
+        trendScore: { type: number, minimum: -1, maximum: 1 }
+        sampledColumns: { type: number, minimum: 1, maximum: 1000 }
+        visualConfidence: { type: number, minimum: 0, maximum: 1 }
+        visualBias: { type: string, enum: [BULLISH, BEARISH, NEUTRAL] }
+        visibleHighPosition: { type: number, minimum: 0, maximum: 1, description: "Normalized vertical position of the highest detected chart region; 0 is the top of the plot." }
+        visibleLowPosition: { type: number, minimum: 0, maximum: 1, description: "Normalized vertical position of the lowest detected chart region; 1 is the bottom of the plot." }
+        lastPricePosition: { type: number, minimum: 0, maximum: 1, description: "Normalized vertical position of the latest detected chart region." }
+        priceRangeConfidence: { type: number, minimum: 0, maximum: 1 }
+        priceScaleTop: { type: number, minimum: 0, description: "Optional readable price label at the top of the chart plot." }
+        priceScaleBottom: { type: number, minimum: 0, description: "Optional readable price label at the bottom of the chart plot." }
+        signals:
+          type: array
+          maxItems: 8
+          items: { type: string, maxLength: 180 }
+    ChartAnalysisResponse:
+      type: object
+      required: [filename, analyzedAt, visual, model, combinedDirection, agreement, priceRange, scenarios, method, disclaimer]
+      properties:
+        filename: { type: string }
+        analyzedAt: { type: string, format: date-time }
+        visual:
+          $ref: "#/components/schemas/ChartVisualAnalysis"
+        model:
+          $ref: "#/components/schemas/Prediction"
+        combinedDirection: { type: string, enum: [BULLISH, BEARISH, NEUTRAL] }
+        agreement: { type: string, enum: [AGREE, CONFLICTING, INSUFFICIENT] }
+        priceRange:
+          $ref: "#/components/schemas/ChartPriceRange"
+        scenarios:
+          type: array
+          minItems: 3
+          maxItems: 3
+          items:
+            $ref: "#/components/schemas/ChartScenario"
+        method: { type: string }
+        disclaimer: { type: string }
+    ChartVisualAnalysis:
+      type: object
+      required: [bias, confidence, trendScore, bullishCandleRatio, bearishCandleRatio, sampledColumns, visibleHighPosition, visibleLowPosition, lastPricePosition, priceRangeConfidence, signals]
+      properties:
+        bias: { type: string, enum: [BULLISH, BEARISH, NEUTRAL] }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        trendScore: { type: number, minimum: -1, maximum: 1 }
+        bullishCandleRatio: { type: number, minimum: 0, maximum: 1 }
+        bearishCandleRatio: { type: number, minimum: 0, maximum: 1 }
+        sampledColumns: { type: number, minimum: 1, maximum: 1000 }
+        visibleHighPosition: { type: number, minimum: 0, maximum: 1 }
+        visibleLowPosition: { type: number, minimum: 0, maximum: 1 }
+        lastPricePosition: { type: number, minimum: 0, maximum: 1 }
+        priceRangeConfidence: { type: number, minimum: 0, maximum: 1 }
+        signals:
+          type: array
+          items: { type: string }
+    ChartPriceRange:
+      type: object
+      required: [lower, upper, midpoint, currentPrice, expectedMovePct, confidence, source, note]
+      properties:
+        lower: { type: number }
+        upper: { type: number }
+        midpoint: { type: number }
+        currentPrice: { type: number }
+        expectedMovePct: { type: number }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        source: { type: string }
+        note: { type: string }
+    ChartScenario:
+      type: object
+      required: [label, direction, probability, lower, upper, midpoint, rationale]
+      properties:
+        label: { type: string }
+        direction: { type: string, enum: [BULLISH, BEARISH, NEUTRAL] }
+        probability: { type: number, minimum: 0, maximum: 1 }
+        lower: { type: number }
+        upper: { type: number }
+        midpoint: { type: number }
+        rationale: { type: string }
+    RealtimeAnalysisResponse:
+      type: object
+      required: [provider, providerStatus, providerMessage, symbol, timeframe, updatedAt, currentPrice, candles, indicators, model, combinedDirection, priceRange, scenarios, disclaimer]
+      properties:
+        provider: { type: string }
+        providerStatus: { type: string, enum: [live, fallback] }
+        providerMessage: { type: string }
+        symbol: { type: string }
+        timeframe: { type: string }
+        updatedAt: { type: string, format: date-time }
+        currentPrice: { type: number }
+        candles:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketCandle"
+        indicators:
+          $ref: "#/components/schemas/TechnicalIndicators"
+        model:
+          $ref: "#/components/schemas/Prediction"
+        combinedDirection: { type: string, enum: [BULLISH, BEARISH, NEUTRAL] }
+        priceRange:
+          $ref: "#/components/schemas/ChartPriceRange"
+        scenarios:
+          type: array
+          minItems: 3
+          maxItems: 3
+          items:
+            $ref: "#/components/schemas/ChartScenario"
+        disclaimer: { type: string }
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error: { type: string }
+    ModelInfo:
+      type: object
+      required: [status, modelName, version, featureCount, features, metadataAvailable]
+      properties:
+        status: { type: string, enum: [sample, loaded, unavailable] }
+        modelName: { type: string }
+        version: { type: string }
+        featureCount: { type: number }
+        features:
+          type: array
+          items: { type: string }
+        metadataAvailable: { type: boolean }
+        modelPath: { type: ["string", "null"] }
+        message: { type: string }
+    FeatureExplanation:
+      type: object
+      required: [feature, label, value, contribution, direction]
+      properties:
+        feature: { type: string }
+        label: { type: string }
+        value: { type: number }
+        contribution: { type: number }
+        direction: { type: string, enum: [positive, negative] }
+    ModelMetric:
+      type: object
+      required: [name, value]
+      properties:
+        name: { type: string }
+        value: { type: ["number", "null"] }
+    ModelPerformance:
+      type: object
+      required: [available, selectedModel, metrics, comparison, confusionMatrix, trainingPeriod, datasetInfo]
+      properties:
+        available: { type: boolean }
+        selectedModel: { type: ["string", "null"] }
+        metrics:
+          type: array
+          items: { $ref: "#/components/schemas/ModelMetric" }
+        comparison:
+          type: array
+          items: { $ref: "#/components/schemas/ModelComparison" }
+        confusionMatrix:
+          type: array
+          items:
+            type: array
+            items: { type: number }
+        trainingPeriod: { type: ["string", "null"] }
+        datasetInfo: { type: ["string", "null"] }
+    ModelComparison:
+      type: object
+      required: [model, accuracy, f1]
+      properties:
+        model: { type: string }
+        accuracy: { type: ["number", "null"] }
+        f1: { type: ["number", "null"] }
+    HistoricalAnalytics:
+      type: object
+      required: [accuracy, bullishCount, bearishCount, calibration, accuracyTrend]
+      properties:
+        accuracy: { type: ["number", "null"] }
+        bullishCount: { type: number }
+        bearishCount: { type: number }
+        calibration:
+          type: array
+          items:
+            type: object
+            required: [bucket, predicted, actual]
+            properties:
+              bucket: { type: string }
+              predicted: { type: number }
+              actual: { type: number }
+        accuracyTrend:
+          type: array
+          items:
+            type: object
+            required: [period, accuracy]
+            properties:
+              period: { type: string }
+              accuracy: { type: ["number", "null"] }
+

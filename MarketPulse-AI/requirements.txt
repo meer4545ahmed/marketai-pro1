@@ -1,0 +1,22 @@
+# MarketPulse AI – Python ML Pipeline Dependencies
+# Python 3.9+ required
+# Install: pip install -r requirements.txt
+
+# ── Core data science ──────────────────────────────────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+
+# ── Machine learning ───────────────────────────────────────────────────────
+scikit-learn==1.4.2
+xgboost==2.0.3
+
+# ── Model serialisation ────────────────────────────────────────────────────
+joblib==1.4.2
+
+# ── Optional: SHAP explainability (install separately if needed) ───────────
+# shap==0.45.1
+
+# ── Optional: Jupyter notebooks ────────────────────────────────────────────
+# jupyter==1.0.0
+# matplotlib==3.8.4
+# seaborn==0.13.2

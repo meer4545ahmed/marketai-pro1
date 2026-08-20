@@ -1,0 +1,508 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Set up Python FastAPI service infrastructure": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788150
+      },
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813806613
+      },
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786814332095
+      }
+    ],
+    "2.1 Create file validation module": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788231
+      },
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786814340379
+      },
+      {
+        "executionId": "a91a2b23-06bf-4c0d-a78d-d351c39235e8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815232291
+      }
+    ],
+    "2.2 Build image preprocessing pipeline": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788318
+      },
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786814341270
+      },
+      {
+        "executionId": "a91a2b23-06bf-4c0d-a78d-d351c39235e8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815232858
+      }
+    ],
+    "3. Checkpoint - Ensure preprocessing tests pass": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788395
+      },
+      {
+        "executionId": "a91a2b23-06bf-4c0d-a78d-d351c39235e8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815275315
+      },
+      {
+        "executionId": "a91a2b23-06bf-4c0d-a78d-d351c39235e8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815503851
+      }
+    ],
+    "4.1 Create OCR engine with EasyOCR and Tesseract fallback": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788507
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815554910
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816886582
+      }
+    ],
+    "4.2 Build price and timestamp extraction logic": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788581
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815555999
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816893389
+      }
+    ],
+    "4.3 Implement minimum data point validation": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788670
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816862985
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816962650
+      }
+    ],
+    "5.1 Create visual pattern detection module": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788787
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863083
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816963857
+      }
+    ],
+    "5.2 Build price scale mapping": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788866
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863163
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816964297
+      }
+    ],
+    "6.1 Create OCR and visual data merger": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813788949
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863224
+      }
+    ],
+    "6.2 Build OHLC dataset construction": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789021
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863287
+      }
+    ],
+    "7. Checkpoint - Ensure data extraction pipeline works end-to-end": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789142
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863362
+      }
+    ],
+    "8.1 Create feature engineering module interface": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789217
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863438
+      }
+    ],
+    "8.2 Implement indicator calculation with volume handling": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789293
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863497
+      }
+    ],
+    "9.1 Create model loading and caching system": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789361
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863556
+      }
+    ],
+    "9.2 Build prediction interface": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789433
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863619
+      }
+    ],
+    "10.1 Create main analysis pipeline orchestrator": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789503
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863682
+      }
+    ],
+    "10.2 Build comprehensive error handling": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789578
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863747
+      }
+    ],
+    "10.3 Implement POST /api/analyze-chart endpoint": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789649
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863845
+      }
+    ],
+    "11.1 Add concurrent processing support": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789723
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863909
+      }
+    ],
+    "11.2 Optimize processing pipeline": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789805
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816863972
+      }
+    ],
+    "12. Checkpoint - Ensure backend service is fully functional": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789924
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864037
+      }
+    ],
+    "13.1 Create ChartUploadComponent in React": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813789999
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864104
+      }
+    ],
+    "13.2 Build file validation in upload component": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790077
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864166
+      }
+    ],
+    "13.3 Implement image preview functionality": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790157
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864234
+      }
+    ],
+    "13.4 Build upload submission logic": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790230
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864296
+      }
+    ],
+    "14.1 Create AnalysisDisplayComponent in React": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790306
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864360
+      }
+    ],
+    "14.2 Build prediction summary section": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790389
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864458
+      }
+    ],
+    "14.3 Implement chart image display": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790474
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864520
+      }
+    ],
+    "14.4 Build technical indicators display": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790545
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864611
+      }
+    ],
+    "15.1 Create TypeScript API client module": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790613
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864681
+      }
+    ],
+    "15.2 Wire components together": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790685
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864756
+      }
+    ],
+    "16.1 Add security measures": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790775
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864825
+      }
+    ],
+    "16.2 Add logging and monitoring": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790854
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864903
+      }
+    ],
+    "17.1 Finalize Dockerfile and dependencies": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790920
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816864967
+      }
+    ],
+    "17.2 Create deployment documentation": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813790989
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816865051
+      }
+    ],
+    "18. Final checkpoint and end-to-end testing": [
+      {
+        "executionId": "8b5d5c51-5b78-4aea-a373-72540652c3b8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786813791063
+      },
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816865150
+      }
+    ],
+    "2. Implement image validation and preprocessing": [
+      {
+        "executionId": "a91a2b23-06bf-4c0d-a78d-d351c39235e8",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786815232949
+      }
+    ],
+    "2.3 Write unit tests for validation and preprocessing": [
+      {
+        "executionId": "0ab5fca7-b7f6-4914-acd0-ea446c17fbd9",
+        "chatSessionId": "sess_551ab41f-4ba1-41f6-ae4f-e7c2c4b9fe26",
+        "timestamp": 1786816939163
+      }
+    ]
+  }
+}

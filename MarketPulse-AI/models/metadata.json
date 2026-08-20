@@ -1,0 +1,290 @@
+{
+  "asset": "XAUUSD",
+  "timeframe": "D1",
+  "best_model": "RandomForest",
+  "uses_scaler": false,
+  "feature_cols": [
+    "returns",
+    "log_returns",
+    "body_size",
+    "hl_range",
+    "upper_wick",
+    "lower_wick",
+    "body_direction",
+    "ret_1d",
+    "ret_2d",
+    "ret_3d",
+    "ret_5d",
+    "ret_10d",
+    "vol_ratio",
+    "dist_ema9",
+    "dist_ema21",
+    "dist_sma20",
+    "dist_sma50",
+    "dist_sma100",
+    "ema9_vs_ema21",
+    "ema21_vs_sma50",
+    "price_vs_sma50",
+    "price_vs_sma200",
+    "rsi",
+    "rsi_prev",
+    "rsi_delta",
+    "macd",
+    "macd_signal",
+    "macd_hist",
+    "macd_cross",
+    "bb_width",
+    "bb_pct",
+    "atr_pct",
+    "volatility_10",
+    "volatility_20",
+    "day_of_week",
+    "month",
+    "quarter"
+  ],
+  "top_features": [
+    "vol_ratio",
+    "bb_pct",
+    "ret_2d",
+    "lower_wick",
+    "bb_width",
+    "volatility_10",
+    "dist_ema9",
+    "ret_3d",
+    "dist_sma50",
+    "rsi_delta",
+    "rsi",
+    "dist_sma100",
+    "rsi_prev",
+    "macd_hist",
+    "atr_pct"
+  ],
+  "feature_importance": {
+    "vol_ratio": 0.053679094737714914,
+    "bb_pct": 0.04377393152349226,
+    "ret_2d": 0.039475789718960895,
+    "lower_wick": 0.03883880396368349,
+    "bb_width": 0.03853149802505754,
+    "volatility_10": 0.03823902330690295,
+    "dist_ema9": 0.037614309179167915,
+    "ret_3d": 0.03680717446809158,
+    "dist_sma50": 0.03660387705529476,
+    "rsi_delta": 0.036460769907375644,
+    "rsi": 0.03640394577401847,
+    "dist_sma100": 0.03628959928836224,
+    "rsi_prev": 0.03619198278098273,
+    "macd_hist": 0.034923370770669,
+    "atr_pct": 0.03396815899552009,
+    "dist_sma20": 0.03368966325918903,
+    "ret_5d": 0.0332392442118966,
+    "ret_10d": 0.032618839934051,
+    "dist_ema21": 0.03242497212887476,
+    "upper_wick": 0.03234739925024615,
+    "macd": 0.03194048812849618,
+    "hl_range": 0.0317785372754419,
+    "volatility_20": 0.03157938153389784,
+    "macd_signal": 0.027027977225333996,
+    "body_size": 0.025609693982436097,
+    "ret_1d": 0.02546422872524947,
+    "returns": 0.0248549552507261,
+    "log_returns": 0.02337560001975242,
+    "month": 0.013604105870661685,
+    "day_of_week": 0.008920693652628072,
+    "quarter": 0.005567524077064086,
+    "price_vs_sma200": 0.0019579992595031817,
+    "ema9_vs_ema21": 0.0016277134242352333,
+    "ema21_vs_sma50": 0.0014468690459075674,
+    "macd_cross": 0.0012456617037757633,
+    "body_direction": 0.0011721271654995425,
+    "price_vs_sma50": 0.0007049953798389974
+  },
+  "split_info": {
+    "train_start": "2014-04-22",
+    "train_end": "2019-09-02",
+    "val_start": "2019-09-03",
+    "val_end": "2020-10-26",
+    "test_start": "2020-10-27",
+    "test_end": "2021-12-21",
+    "train_rows": 1400,
+    "val_rows": 300,
+    "test_rows": 301
+  },
+  "class_distribution": {
+    "train_bull_pct": 51.93,
+    "train_bear_pct": 48.07,
+    "test_bull_pct": 49.83,
+    "test_bear_pct": 50.17
+  },
+  "val_metrics": {
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "accuracy": 0.5233,
+      "precision": 0.5132,
+      "recall": 0.7852,
+      "f1": 0.6207,
+      "roc_auc": 0.5395,
+      "confusion_matrix": [
+        [
+          40,
+          111
+        ],
+        [
+          32,
+          117
+        ]
+      ]
+    },
+    "RandomForest": {
+      "model": "RandomForest",
+      "accuracy": 0.5033,
+      "precision": 0.5,
+      "recall": 0.6846,
+      "f1": 0.5779,
+      "roc_auc": 0.5701,
+      "confusion_matrix": [
+        [
+          49,
+          102
+        ],
+        [
+          47,
+          102
+        ]
+      ]
+    },
+    "XGBoost": {
+      "model": "XGBoost",
+      "accuracy": 0.5633,
+      "precision": 0.5506,
+      "recall": 0.6577,
+      "f1": 0.5994,
+      "roc_auc": 0.5623,
+      "confusion_matrix": [
+        [
+          71,
+          80
+        ],
+        [
+          51,
+          98
+        ]
+      ]
+    },
+    "NeuralNetwork": {
+      "model": "NeuralNetwork",
+      "accuracy": 0.5,
+      "precision": 0.498,
+      "recall": 0.8456,
+      "f1": 0.6269,
+      "roc_auc": 0.4952,
+      "confusion_matrix": [
+        [
+          24,
+          127
+        ],
+        [
+          23,
+          126
+        ]
+      ]
+    }
+  },
+  "test_metrics": {
+    "model": "RandomForest",
+    "accuracy": 0.495,
+    "precision": 0.4955,
+    "recall": 0.7333,
+    "f1": 0.5914,
+    "roc_auc": 0.51,
+    "confusion_matrix": [
+      [
+        39,
+        112
+      ],
+      [
+        40,
+        110
+      ]
+    ]
+  },
+  "model_comparison": [
+    {
+      "model": "LogisticRegression",
+      "accuracy": 0.5116,
+      "precision": 0.5065,
+      "recall": 0.78,
+      "f1": 0.6142,
+      "roc_auc": 0.5254,
+      "confusion_matrix": [
+        [
+          37,
+          114
+        ],
+        [
+          33,
+          117
+        ]
+      ],
+      "val_auc": 0.5395
+    },
+    {
+      "model": "RandomForest",
+      "accuracy": 0.495,
+      "precision": 0.4955,
+      "recall": 0.7333,
+      "f1": 0.5914,
+      "roc_auc": 0.51,
+      "confusion_matrix": [
+        [
+          39,
+          112
+        ],
+        [
+          40,
+          110
+        ]
+      ],
+      "val_auc": 0.5701
+    },
+    {
+      "model": "XGBoost",
+      "accuracy": 0.5017,
+      "precision": 0.5,
+      "recall": 0.6133,
+      "f1": 0.5509,
+      "roc_auc": 0.5048,
+      "confusion_matrix": [
+        [
+          59,
+          92
+        ],
+        [
+          58,
+          92
+        ]
+      ],
+      "val_auc": 0.5623
+    },
+    {
+      "model": "NeuralNetwork",
+      "accuracy": 0.505,
+      "precision": 0.5018,
+      "recall": 0.9333,
+      "f1": 0.6527,
+      "roc_auc": 0.532,
+      "confusion_matrix": [
+        [
+          12,
+          139
+        ],
+        [
+          10,
+          140
+        ]
+      ],
+      "val_auc": 0.4952
+    }
+  ],
+  "trained_at": "2026-08-16T03:44:39.378752",
+  "total_rows": 2001
+}

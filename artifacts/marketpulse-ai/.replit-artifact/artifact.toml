@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "MarketPulse AI"
+description = "A transparent AI-powered market analysis dashboard for exploring XAUUSD price data, model predictions, technical indicators, explainability, uploads, and future live-data integrations."
+version = "1.0.0"
+id = "artifacts/marketpulse-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19846
+
+[services.development]
+run = "pnpm --filter @workspace/marketpulse-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/marketpulse-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/marketpulse-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19846"
+BASE_PATH = "/"

@@ -1,0 +1,3 @@
+- [OpenAPI/Zod compatibility](openapi-zod-compatibility.md) — generated integer schemas can require a Zod runtime helper unavailable in the current workspace.
+- [Imported workspace codegen](imported-workspace-codegen.md) — pnpm installs may leave the Linux esbuild binary non-executable; restore execute permission before Orval codegen.
+- [Imported artifact workflows](imported-artifact-workflows.md) — artifact metadata may exist without registered workflows; ad hoc starts need the artifact PORT values injected.
